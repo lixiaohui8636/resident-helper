@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <appender name="dailly_rolling_file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>logs/residentHelper.log</File>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{"yyyy-MM-dd HH:mm:ss,SSS"} [%c]-[%p] %m%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/residentHelper.log.%d</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.mybatis" level="WARN"/>
+    <root level="INFO">
+        <appender-ref ref="dailly_rolling_file"/>
+        <!--<appender-ref ref="STDOUT"/>-->
+    </root>
+</configuration>

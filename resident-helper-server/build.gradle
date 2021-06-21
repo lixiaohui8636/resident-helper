@@ -1,16 +1,60 @@
-plugins {
-    id 'java'
-}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
 group 'com.lixiaohui8636.server'
 version '1.0.0'
 
+bootJar {
+    baseName = 'resident-helper-server'
+    version = '1.0.0'
+}
+
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+buildscript {
+    repositories {
+        maven {
+            url = 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.2.RELEASE")
+    }
+}
+
 
 repositories {
+    maven {
+        url = 'http://maven.aliyun.com/nexus/content/groups/public/'
+    }
+
     mavenCentral()
 }
 
 dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-redis")
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'mysql:mysql-connector-java'
+
+    compile 'com.google.code.gson:gson:2.8.4'
+    compile 'commons-codec:commons-codec:1.10'
+    compile 'commons-io:commons-io:2.6'
+    compile 'org.apache.commons:commons-lang3:3.7'
+
+
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+
+}
+
+bootRun {
+    //jvmArgs "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000"
+    systemProperties = System.properties
 }

@@ -1,0 +1,30 @@
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  profiles: dev
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+
+jdbc:
+  driverClass: com.mysql.jdbc.Driver
+  url: jdbc:mysql://127.0.0.1:3306/excalibur?useUnicode=true&characterEncoding=utf-8
+  username: root
+  password: 12345678
+
+---
+spring:
+  profiles: prod
+  redis:
+    host: r-2zec50734ba53914.redis.rds.aliyuncs.com
+    port: 6379
+    password: LqTenet2009Ucred!
+
+jdbc:
+  driverClass: com.mysql.jdbc.Driver
+  url: jdbc:mysql://blhusercenter.mysql.rds.aliyuncs.com:3306/user_center?useUnicode=true&characterEncoding=utf-8
+  username: work
+  password: LqTenet2009Ucdb!
