@@ -12,7 +12,7 @@ public abstract class CacheService {
     private Map<String, Object> cache = new HashMap<>();
 
 
-    public void saveRedisCache(String cacheKey, Object o){
+    public void saveRedisCache(String cacheKey, Object o, int expireMinutes){
         cache.put(cacheKey, o);
     }
 

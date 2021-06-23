@@ -1,5 +1,7 @@
 package com.residenthelper.server.service.sms;
 
+import com.residenthelper.server.common.ApiException;
+
 /**
  * @Author: Lee
  * @Date: 6/21/21
@@ -12,7 +14,7 @@ public interface SmsService {
      * @param smsEvent 事件
      * @param phone 手机号
      */
-    public void sendSms(SmsEvent smsEvent, String phone);
+    public void sendSms(SmsEvent smsEvent, String phone) throws ApiException;
 
     /**
      * 验证手机验证码
@@ -21,5 +23,5 @@ public interface SmsService {
      * @param smsCode 验证码
      * @return
      */
-    public boolean verifySmsCode(SmsEvent smsEvent, String phone, String smsCode);
+    public void verifySmsCode(SmsEvent smsEvent, String phone, String smsCode) throws ApiException;
 }
