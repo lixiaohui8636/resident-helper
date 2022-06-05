@@ -1,34 +1,34 @@
-package com.residenthelper.server.service.user.bean;
+package com.residenthelper.server.service.car.bean;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @Author: Lee
- * @Date: 6/9/21
- * @Desc:
+ * @author lixiaohui
+ * @date 6/2/22
  */
 @Entity
-@Table(name = "the_user", schema = "resident_helper", catalog = "")
-public class UserBean implements Serializable {
-    private static final long serialVersionUID = 8491700805675378223L;
+@Table(name = "the_car", schema = "resident_helper", catalog = "")
+public class CarBean implements Serializable {
+    private static final long serialVersionUID = 5088403343125376160L;
 
     public static enum Status{
         ENABLED,DELETED
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Basic
-    @Column(name = "phone")
-    private String phone;
+    @Column(name = "car_number")
+    private String carNumber;
     @Basic
-    @Column(name = "wechat_open_id")
-    private String wechatOpenId;
+    @Column(name = "car_name")
+    private String carName;
     @Basic
-    @Column(name = "nick_name")
-    private String nickName;
+    @Column(name = "car_phone")
+    private String carPhone;
     @Basic
     @Column(name = "home_floor")
     private String homeFloor;
@@ -38,10 +38,11 @@ public class UserBean implements Serializable {
     @Basic
     @Column(name = "home_number")
     private String homeNumber;
+
     @Basic
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private CarBean.Status status;
     @Basic
     @Column(name = "create_time")
     private Date createTime;
@@ -49,6 +50,9 @@ public class UserBean implements Serializable {
     @Column(name = "update_time")
     private Date updateTime;
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     public long getId() {
         return id;
@@ -58,28 +62,28 @@ public class UserBean implements Serializable {
         this.id = id;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getCarNumber() {
+        return carNumber;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setCarNumber(String carNumber) {
+        this.carNumber = carNumber;
     }
 
-    public String getWechatOpenId() {
-        return wechatOpenId;
+    public String getCarName() {
+        return carName;
     }
 
-    public void setWechatOpenId(String wechatOpenId) {
-        this.wechatOpenId = wechatOpenId;
+    public void setCarName(String carName) {
+        this.carName = carName;
     }
 
-    public String getNickName() {
-        return nickName;
+    public String getCarPhone() {
+        return carPhone;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
+    public void setCarPhone(String carPhone) {
+        this.carPhone = carPhone;
     }
 
     public String getHomeFloor() {
@@ -132,15 +136,15 @@ public class UserBean implements Serializable {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("UserBean{");
+        final StringBuilder sb = new StringBuilder("CarBean{");
         sb.append("id=").append(id);
-        sb.append(", phone='").append(phone).append('\'');
-        sb.append(", wechatOpenId='").append(wechatOpenId).append('\'');
-        sb.append(", nickName='").append(nickName).append('\'');
+        sb.append(", carNumber='").append(carNumber).append('\'');
+        sb.append(", carName='").append(carName).append('\'');
+        sb.append(", carPhone='").append(carPhone).append('\'');
         sb.append(", homeFloor='").append(homeFloor).append('\'');
         sb.append(", homeUnit='").append(homeUnit).append('\'');
         sb.append(", homeNumber='").append(homeNumber).append('\'');
-        sb.append(", status='").append(status).append('\'');
+        sb.append(", status=").append(status);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
         sb.append('}');

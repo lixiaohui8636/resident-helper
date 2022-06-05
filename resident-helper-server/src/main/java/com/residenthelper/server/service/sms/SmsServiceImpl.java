@@ -4,14 +4,13 @@ import com.residenthelper.server.common.ApiErrorCode;
 import com.residenthelper.server.common.ApiException;
 import com.residenthelper.server.common.CacheService;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.stereotype.Service;
 
 /**
  * @Author: Lee
  * @Date: 6/21/21
  * @Desc: 短信服务
  */
-@Service
+//@Service
 public class SmsServiceImpl extends CacheService implements SmsService {
     public static final String SMS_CACHE_SUFFIX = "resident:sms:";
     public static final int SMS_CACHE_EXPIRE_MINUTES = 5;

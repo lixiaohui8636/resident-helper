@@ -17,6 +17,9 @@ public interface UserRepository extends JpaRepository<UserBean,Long> {
      * @param phone
      * @return
      */
-    @Query(value = "SELECT * FROM the_user WHERE phone =:phone AND status != 'ZHUXIAO'", nativeQuery = true)
+    @Query(value = "SELECT * FROM the_user WHERE phone =:phone AND status ='ENABLED'", nativeQuery = true)
     public UserBean findUserBeanByPhone(@Param("phone") String phone);
+
+    @Query(value = "SELECT * FROM the_user WHERE id =:id AND status ='ENABLED'", nativeQuery = true)
+    public UserBean findUserBeanById(@Param("id") long id);
 }

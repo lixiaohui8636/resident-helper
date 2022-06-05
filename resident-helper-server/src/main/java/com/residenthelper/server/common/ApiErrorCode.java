@@ -11,6 +11,7 @@ public enum ApiErrorCode {
     LOGIN_FAILED(100001L,"登录失败"),
     USER_NOT_EXISTED(100002L,"用户不存在"),
     USER_IS_BLACK(100003L,"用户已被拉黑"),
+    USER_TOKEN_EXPIRED(100004L,"用户无效"),
 
     PHONE_NOT_VALID(300001L, "手机号不合法"),
     SMS_CODE_NOT_VALID(300002L, "验证码错误"),
